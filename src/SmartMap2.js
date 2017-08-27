@@ -7,16 +7,28 @@ class SmartMap2 extends Component {
     }
 
     set(coordinates, value) {
-        this.storage.set(coordinates.toString(), value);
+        let x = coordinates[0];
+        let y = coordinates[1];
+        let storage = this.storage;
+        if (storage.has(x))
+            this.storage.set(x,storage.get(x).set(y,value))
+        else 
+            {
+                let newStorage = new Map();
+                newStorage.set(y,value);
+                this.storage.set(x, newStorage);
+            }
         return true;
     }
 
     get(coordinates) {
-        if (this.storage.has(coordinates.toString())) {
-            return this.storage.get(coordinates.toString());
+        let x = coordinates[0];
+        let y = coordinates[1];
+        if (this.storage.has(x) && this.storage.get(x).has(y)) {
+            return this.storage.get(x).get(y);
         }
-        else
-            return undefined;
+        
+        return undefined;
     }
 
     run() {
@@ -31,7 +43,7 @@ class SmartMap2 extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <h1> Smart Map with Map()</h1>
+                    <h1>Smart Map with Map()</h1>
                 </div>
                 <p className="App-intro">
                     Click this button to get this code is executed. Check console log.

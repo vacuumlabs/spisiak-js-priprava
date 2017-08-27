@@ -16,7 +16,10 @@ class SmartMap extends Component {
     }
 
     get(coordinates) {
-        return this.storage[coordinates[0]][coordinates[1]];
+        if (this.storage[coordinates[0]] !== undefined)
+            return this.storage[coordinates[0]][coordinates[1]];
+        
+        return undefined;
     }
 
     run() {
