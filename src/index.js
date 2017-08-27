@@ -5,6 +5,7 @@ import App from './App';
 import Premises from './Premises';
 import SmartMap from './SmartMap';
 import SmartMap2 from './SmartMap2';
+import UnorderedSmartMap from './UnorderedSmartMap';
 import registerServiceWorker from './registerServiceWorker';
 
 import {
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <NavItem eventKey="2" href="/premises" disabled>Premises</NavItem>
                 <NavItem eventKey="3" href="/smart-map">Smart Map</NavItem>
                 <NavItem eventKey="3" href="/smart-map-2">Smart Map 2</NavItem>
+                <NavItem eventKey="3" href="/unordered-smart-map">Unordered Smart Map </NavItem>
             </Nav>
 
         <hr/>
@@ -34,6 +36,7 @@ ReactDOM.render(
         <Route path="/premises" component={Premises}/>
         <Route path="/smart-map" component={SmartMap}/>
         <Route path="/smart-map-2" component={SmartMap2}/>
+        <Route path="/unordered-smart-map" component={UnorderedSmartMap}/>
         </div>
     </Router>
     , document.getElementById('root'));
